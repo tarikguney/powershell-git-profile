@@ -12,4 +12,4 @@ It will:
 
 You can get more information by invoking `Get-Help ./setup.ps1` in the script folder.
 
-Developed by @tarikguney
+Developed by [@tarikguney](https://github.com/tarikguney)
