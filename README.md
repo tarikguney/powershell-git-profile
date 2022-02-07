@@ -18,6 +18,8 @@ You can get more information by invoking `Get-Help ./setup.ps1` in the script fo
 
 `./setup.ps1 -e hello@world.com -f github_key`
 
+## Parameters
+
 ```powershell
 param(
 #Email address that is used in the SSH Key.
