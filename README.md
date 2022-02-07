@@ -29,4 +29,8 @@ param(
 )
 ```
 
+## Notes
+1. Works in MacOS and Windows
+2. Powershell 7.x+ must be installed on the computer.
+
 Developed by [@tarikguney](https://github.com/tarikguney)
