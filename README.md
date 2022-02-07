@@ -12,7 +12,7 @@ It will:
 
 You can get more information by invoking `Get-Help ./setup.ps1` in the script folder.
 
-## Example
+## Examples
 
 `./setup.ps1 -e hello@world.com`
 
