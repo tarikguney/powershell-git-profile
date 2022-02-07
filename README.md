@@ -12,4 +12,19 @@ It will:
 
 You can get more information by invoking `Get-Help ./setup.ps1` in the script folder.
 
+## Example
+
+`./setup.ps1 -e hello@world.com`
+
+`./setup.ps1 -e hello@world.com -f github_key`
+
+```powershell
+param(
+#Email address that is used in the SSH Key.
+    [Parameter(Mandatory = $true)] [Alias("e")] [string] $Email,
+#The SSH public and private key file name that is going be generated. The default is github.
+    [Parameter()] [Alias("f")] [string] $KeyFileName = "github"
+)
+```
+
 Developed by [@tarikguney](https://github.com/tarikguney)
