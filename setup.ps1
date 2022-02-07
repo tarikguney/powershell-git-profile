@@ -17,9 +17,9 @@
     For more and up-to-date help: https://github.com/tarikguney/powershell-git-profile#readme
 #>
 param(
-#Email address that is used in the SSH Key.
+#Email address that is used in the SSH Key. Alias: -e
     [Parameter(Mandatory = $true)] [Alias("e")] [string] $Email,
-#The SSH public and private key file name that is going be generated. The default is github.
+#The SSH public and private key file name that is going be generated. The default is github. Alias: -f
     [Parameter()] [Alias("f")] [string] $KeyFileName = "github"
 )
 

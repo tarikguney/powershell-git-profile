@@ -18,16 +18,29 @@ You can get more information by invoking `Get-Help ./setup.ps1` in the script fo
 
 `./setup.ps1 -e hello@world.com -f github_key`
 
+For all examples, run:
+
+`Get-Help ./setup.ps1 -Examples`
+
 ## Parameters
 
-```powershell
-param(
-#Email address that is used in the SSH Key.
-    [Parameter(Mandatory = $true)] [Alias("e")] [string] $Email,
-#The SSH public and private key file name that is going be generated. The default is github.
-    [Parameter()] [Alias("f")] [string] $KeyFileName = "github"
-)
 ```
+-Email <String> (Alias: -e)
+Email address that is used in the SSH Key.
+
+-KeyFileName <String> (Alias: -f)
+The SSH public and private key file name that is going be generated. The default is github.
+
+<CommonParameters>
+This cmdlet supports the common parameters: Verbose, Debug,
+ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+OutBuffer, PipelineVariable, and OutVariable. For more information, see
+about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+```
+
+To see the parameter information, run:
+
+`Get-Help ./setup.ps1 -Detailed`
 
 ## Notes
 1. Works in MacOS and Windows
