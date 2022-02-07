@@ -1,7 +1,20 @@
 <#
 .DESCRIPTION
+    This script will:
+    1.Generate your SSH public and private keys.
+    2. Add the necessary OpenSSH commands in your $profile.CurrentUserCurrentHost profile file so that each time you start a new Powershell session, your private SSH key are automatically added to OpenSSH agent.
+    3. It will copy your new SSH public key to the clipboard so that you can quickly paste it into your favorite Git registry SSH keys page (e.g. Github).
+    4. And more importantly, you won't have to remember any of these steps.
+    
     Author: Tarik Guney
-    Date:   June 28, 2010    
+    Date:   June 28, 2010 
+.EXAMPLE
+     ./setup.ps1 -e hello@world.com
+     The default value for -f is github
+ .EXAMPLE
+     ./setup.ps1 -e hello@world.com -f my_key
+ .LINK
+    For more and up-to-date help: https://github.com/tarikguney/powershell-git-profile#readme
 #>
 param(
 #Email address that is used in the SSH Key.
