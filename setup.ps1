@@ -30,6 +30,7 @@ function Generate-SSHKeys($homePath)
     Write-Host $homePath
     $sshKeyLocation = $homePath.SSHKeyLocation
     $sshKeyFilePath = $homePath.SSHKeyFilePath
+    $sshKeyPubFilePath = $sshKeyFilePath + ".pub"
     Write-Host $sshKeyFilePath
     
     Write-Host "SSH Keys location $sshKeyLocation" -ForegroundColor "Green"
@@ -47,9 +48,9 @@ function Generate-SSHKeys($homePath)
         ssh-keygen -t rsa -b 4096 -C "$Email" -f "$sshKeyFilePath" -N "" -P "" | Write-Host -ForegroundColor "Yellow"
     }
 
-    $pubContent = Get-Content -Path $sshKeyFilePath
+    $pubContent = Get-Content -Path $sshKeyPubFilePath
 
-    Write-Host "The new public key is copied to your clipboard. You can paste it to your Git registery's SSH key repository."`
+    Write-Host "The new public key ($sshKeyPubFilePath) is copied to your clipboard. You can paste it to your Git registery's SSH key repository."`
         -ForegroundColor "Green"
     Set-Clipboard $pubContent
 }
