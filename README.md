@@ -1,5 +1,7 @@
 # Git SSH Configurator for Powershell
 
+![](./git-ssh-configurator-banner.jpg)
+
 Are you are tired of manually generating your public and private keys and starting the ssh agent and adding the private key to it each time you use remote Git repositories with SSH authentication?
 
 Then, this is the script you need.
