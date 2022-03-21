@@ -62,7 +62,7 @@ function Append-WindowsSSHConfig($filePath)
     if ( $profileContent.Contains("Set-Service ssh-agent"))
     {
         $profile = @"
-ssh-add "$filePath" *> `$null
+`nssh-add "$filePath" *> `$null
 "@
     }
     else
@@ -109,7 +109,7 @@ Write-Host "Detected OS is $currentOs"
 if ($currentOs -eq "Unix")
 {
     $paths = @{ }
-    $paths.SSHKeyLocation = $env:HOME + "/.ssh"
+    $paths.SSHKeyLocation = $HOME + "/.ssh"
     $paths.SSHKeyFilePath = "$( $paths.SSHKeyLocation )/$KeyFileName"
     Generate-SSHKeys($paths)
     Append-MacSShConfig($paths.SSHKeyFilePath)
@@ -117,8 +117,8 @@ if ($currentOs -eq "Unix")
 elseif ($currentOs -eq "Win32NT")
 {
     $paths = @{ }
-    $paths.SSHKeyLocation = $env:HOMEPATH + "/.ssh"
-    $paths.SSHKeyFilePath = "$( $paths.SSHKeyLocation )/$KeyFileName"
+    $paths.SSHKeyLocation = $global:HOME + "\.ssh"
+    $paths.SSHKeyFilePath = "$( $paths.SSHKeyLocation )\$KeyFileName"
     Generate-SSHKeys($paths)
     Append-WindowsSSHConfig($paths.SSHKeyFilePath)
 }
