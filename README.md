@@ -48,4 +48,43 @@ To see the parameter information, run:
 1. Works in MacOS and Windows
 2. Powershell 7.x+ must be installed on the computer.
 
+## Troubleshooting
+
+If you are getting the following error even though you added your public key to your Git registery's SSH Keys:
+
+```
+Cloning into 'repository-name'...
+Warning: Identity file /c/Users/Tarik Guney/.ssh/github not accessible: No such file or directory.
+Warning: Permanently added 'bitbucket.org' (RSA) to the list of known hosts.
+git@bitbucket.org: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+Then you are most likely using more than one keys. Follow the steps below:
+
+1. If not exist, create a `config` file in `~/.ssh` folder.
+2. Add the following code (adjust for your own needs):
+
+```
+Host github.com
+    Hostname github.com
+    IdentityFile ~/.ssh/github_beast
+    IdentitiesOnly yes
+
+Host bitbucket.org
+    Hostname bitbucket.org
+    IdentityFile ~/.ssh/atlassian
+    IdentitiesOnly yes
+```
+
+If you want to see which public and private key are used for which host (bitbucket.org or github.com, etc.), then run the following commands:
+
+```
+$env:GIT_SSH_COMMAND = "ssh -vvv"
+git clone your-remote-repo
+```
+
 Developed by [@tarikguney](https://github.com/tarikguney)
